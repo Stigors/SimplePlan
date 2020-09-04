@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+      <meta charset="UTF-8">
+      <title>Simple plan</title>
+  </head>
+  <body>
+    <h1>Список дел</h1>
+    <h2>Сегодня:
+        {{ day }}
+    </h2>
+    <form method="post" action="/">
+        <label>
+            <input type="text" required name="task">
+        </label>
+        <input type="submit" value="Добавить дело!">
+        <label>
+            <input type="date" required name="deadline">
+        </label>
+    </form>
+    <br>
+    <form method="post" action="/">
+        <label>
+            <input type="text" required name="task_complete">
+        </label>
+        <input type="submit" value="Выполнить дело!">
+    </form>
+    <br>
+    <form method="post" action="/">
+        <label>
+            <input type="text" required name="task_delete">
+        </label>
+        <input type="submit" value="Удалить дело!">
+    </form>
+    <p>
+        {{ tasks|safe }}
+    </p>
+
+  </body>
+</html>
