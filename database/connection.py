@@ -69,7 +69,7 @@ def complete_task(task_id_i):
     WHERE task_id = ?
     """, (task_id_i,))
     conn.commit()
-    return db_to_html(conn)
+    return todo_list(conn)
 
 
 def delete_task(task_id_i):
@@ -81,7 +81,7 @@ def delete_task(task_id_i):
     WHERE task_id = ?
     """, (task_id_i,))
     conn.commit()
-    return db_to_html(conn)
+    return todo_list(conn)
 
 
 connect_db()
