@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from database.connection import db_to_html
+from database.connection import todo_list
 from database.connection import add_task
 from database.connection import complete_task
 from database.connection import delete_task
@@ -8,7 +8,7 @@ import sqlite3
 
 
 def index(request):
-    tasks_list = db_to_html(sqlite3.connect('tasks_db.sqlite'))
+    tasks_list = todo_list(sqlite3.connect('tasks_db.sqlite'))
     day = date()
 
     if request.method == 'POST':
@@ -16,10 +16,10 @@ def index(request):
             task_description_value = request.POST['task']
             deadline = request.POST['deadline']
             tasks_list = add_task(task_description_value, deadline)
-        if 'task_complete' in request.POST:
-            task_complete = int(request.POST['task_complete'])
+        if "Complete" in request.POST:
+            task_complete = int(request.POST['task_change'])
             tasks_list = complete_task(task_complete)
-        if 'task_delete' in request.POST:
+        if "Delete" in request.POST:
             task_delete = int(request.POST['task_delete'])
             tasks_list = delete_task(task_delete)
 

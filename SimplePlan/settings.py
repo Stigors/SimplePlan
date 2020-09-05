@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'homepage',
     'database',
     'date',
+    'completed',
+    'deleted',
 ]
 
 MIDDLEWARE = [

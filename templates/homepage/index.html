@@ -21,20 +21,15 @@
     <br>
     <form method="post" action="/">
         <label>
-            <input type="text" required name="task_complete">
+            <input type="text" required name="task_change">
         </label>
-        <input type="submit" value="Выполнить дело!">
-    </form>
-    <br>
-    <form method="post" action="/">
-        <label>
-            <input type="text" required name="task_delete">
-        </label>
-        <input type="submit" value="Удалить дело!">
+        <input type="submit" name="Complete" value="Выполнить дело!">
+        <input type="submit" name="Delete" value="Удалить дело!">
     </form>
     <p>
         {{ tasks|safe }}
     </p>
-
+    <a href="completed/">Показать выполненные задачи</a>
+    <a href="deleted/">Показать удалённые задачи</a>
   </body>
 </html>

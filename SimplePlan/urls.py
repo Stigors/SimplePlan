@@ -17,4 +17,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('', include('homepage.urls')),
+    path('completed/', include('completed.urls')),
+    path('deleted/', include('deleted.urls')),
 ]
