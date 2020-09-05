@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'date',
     'completed',
     'deleted',
+    'todofull',
 ]
 
 MIDDLEWARE = [

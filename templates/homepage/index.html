@@ -13,10 +13,10 @@
         <label>
             <input type="text" required name="task">
         </label>
-        <input type="submit" value="Добавить дело!">
         <label>
             <input type="date" required name="deadline">
         </label>
+        <input type="submit" value="Добавить дело!">
     </form>
     <br>
     <form method="post" action="/">
@@ -29,6 +29,7 @@
     <p>
         {{ tasks|safe }}
     </p>
+    <a href="todofull/">Показать все незавершённые задачи</a>
     <a href="completed/">Показать выполненные задачи</a>
     <a href="deleted/">Показать удалённые задачи</a>
   </body>

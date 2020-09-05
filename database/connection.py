@@ -29,6 +29,18 @@ def todo_list(connection):
     tasks_html = tasks_frame.to_html(columns=('ID', 'Task description', 'Deadline', 'Status'), index=False)
     return tasks_html
 
+
+def todofull_list(connection):
+    tasks_frame = pd.read_sql_query("""
+    SELECT * FROM tasks_db 
+    WHERE task_status = "To do"
+    """, connection)
+    tasks_frame.rename(columns={'task_id': 'ID', 'task_description': 'Task description', 'task_deadline': 'Deadline',
+                                'task_status': 'Status'}, inplace=True)
+    tasks_html = tasks_frame.to_html(columns=('ID', 'Task description', 'Deadline', 'Status'), index=False)
+    return tasks_html
+
+
 def completed_list(connection):
     tasks_frame = pd.read_sql_query("""
     SELECT * FROM tasks_db 
@@ -39,6 +51,7 @@ def completed_list(connection):
     tasks_html = tasks_frame.to_html(columns=('ID', 'Task description', 'Deadline', 'Status'), index=False)
     return tasks_html
 
+
 def deleted_list(connection):
     tasks_frame = pd.read_sql_query("""
     SELECT * FROM tasks_db 
@@ -48,6 +61,7 @@ def deleted_list(connection):
                                 'task_status': 'Status'}, inplace=True)
     tasks_html = tasks_frame.to_html(columns=('ID', 'Task description', 'Deadline', 'Status'), index=False)
     return tasks_html
+
 
 def add_task(task_description_value, deadline):
     connection = sqlite3.connect('tasks_db.sqlite')
