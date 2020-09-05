@@ -57,7 +57,7 @@ def add_task(task_description_value, deadline):
     VALUES (?, ?, "Home", "To do")
     """, (task_description_value, deadline))
     connection.commit()
-    return db_to_html(connection)
+    return todo_list(connection)
 
 
 def complete_task(task_id_i):
